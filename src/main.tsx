@@ -11,18 +11,17 @@ import { CLERK_KEY_API } from './constants/env.constants'
 
 const router = createBrowserRouter([
   {
-    path: '/',
     element: <App />,
     children: [
-      {
-        path: '/home',
-        element: <Home />
-      },
       {
         path: '/dashboard',
         element: <Dashboard />
       }
     ]
+  },
+  {
+    path: '/',
+    element: <Home />
   },
   {
     path: '/auth/sign-in',
