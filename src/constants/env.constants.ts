@@ -1,0 +1,1 @@
+export const CLERK_KEY_API = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
