@@ -8,6 +8,7 @@ import Home from '@/pages/home'
 import Dashboard from '@/pages/dashboard'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { CLERK_KEY_API } from './constants/env.constants'
+import EditResume from './pages/dashboard/resume/[resumeId]/edit'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashboard />
+      },
+      {
+        path: '/dashboard/resume/:resumeId/edit',
+        element: <EditResume />
       }
     ]
   },

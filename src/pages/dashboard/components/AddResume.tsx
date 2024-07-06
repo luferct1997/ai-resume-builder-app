@@ -13,10 +13,12 @@ import { v4 as uuidv4 } from 'uuid'
 import { createNewResume } from '@/services/resume.services'
 import { useUser } from '@clerk/clerk-react'
 import { Resume } from '@/interfaces/resume.interfaces'
+import { useNavigate } from 'react-router-dom'
 export const AddResume = () => {
     const [openDialog, setOpenDialog] = useState(false)
     const [resumeTitle, setResumeTitle] = useState('')
     const [loading, setLoading] = useState(false)
+    const navigation = useNavigate()
     const { user } = useUser();
     const onCreate = async () => {
         const uuid = uuidv4();
@@ -29,8 +31,10 @@ export const AddResume = () => {
         try {
             setLoading(true)
             const newResume = await createNewResume(resume)
+            console.log(newResume)
             if (newResume) {
                 setLoading(false)
+                navigation('/dashboard/resume/' + newResume.data.attributes.uuid + '/edit');
             }
         } catch {
             setLoading(false)
