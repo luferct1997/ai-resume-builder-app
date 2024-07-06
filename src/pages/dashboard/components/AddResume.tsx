@@ -31,7 +31,6 @@ export const AddResume = () => {
         try {
             setLoading(true)
             const newResume = await createNewResume(resume)
-            console.log(newResume)
             if (newResume) {
                 setLoading(false)
                 navigation('/dashboard/resume/' + newResume.data.attributes.uuid + '/edit');
